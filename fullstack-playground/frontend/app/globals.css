@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+/* =========================
+   DESIGN SYSTEM (Tailwind v4)
+   ========================= */
+
+@theme {
+  --color-background: rgb(10 12 16);
+  --color-foreground: rgb(240 240 240);
+
+  --color-emerald-primary: rgb(16 185 129);
+  --color-emerald-soft: rgb(110 231 183);
+
+  --color-muted: rgb(40 44 52);
+  --color-border-subtle: rgb(30 34 40);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+}
+
+
+/* =========================
+   INTRO OVERLAY
+   ========================= */
+
+.intro-overlay{
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: radial-gradient(circle at 30% 40%, rgba(16,185,129,0.14), rgba(0,0,0,0.92) 60%);
+}
+
+.intro-backdrop{
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(5,9,20,0.95), rgba(10,16,31,0.95));
+}
+
+.intro-glow{
+  position: absolute;
+  width: min(720px, 90vw);
+  height: min(720px, 90vw);
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(16,185,129,0.22), transparent 60%);
+  filter: blur(16px);
+  opacity: 0;
+  animation: introGlow 1.5s ease-out forwards;
+}
+
+.intro-triangle{
+  position: relative;
+  width: min(520px, 84vw);
+  height: min(520px, 84vw);
+  clip-path: polygon(50% 6%, 6% 92%, 94% 92%);
+  border: 3px solid rgba(52, 211, 153, 0.95);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 0 40px rgba(16,185,129,0.35),
+    0 0 90px rgba(16,185,129,0.15);
+  background: rgba(16,185,129,0.03);
+  transform: scale(0.75);
+  opacity: 0;
+  animation: introTri 1.5s cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+@keyframes introTri{
+  0%   { opacity: 0; transform: scale(0.7); filter: blur(2px); }
+  20%  { opacity: 1; transform: scale(0.95); filter: blur(0px); }
+  60%  { opacity: 1; transform: scale(1.02); }
+  100% { opacity: 0; transform: scale(5); filter: blur(0px); }
+}
+
+@keyframes introGlow{
+  0%   { opacity: 0; transform: scale(0.8); }
+  30%  { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(1.4); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .intro-triangle, .intro-glow{ animation: none !important; opacity: 0 !important; }
+}
