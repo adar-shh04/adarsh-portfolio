@@ -1,8 +1,5 @@
 const Message = require("../models/Message");
-const { Resend } = require("resend");
-
-// Initialize Resend with the API key from .env
-const resend = new Resend(process.env.RESEND_API_KEY);
+const nodemailer = require("nodemailer");
 
 const submitContactForm = async (req, res) => {
   try {
@@ -25,15 +22,23 @@ const submitContactForm = async (req, res) => {
       message,
     });
 
-    // 2. Send Email via Resend
-    // Resend's free tier only allows sending to verified domains or the onboarding email
-    const myEmail = process.env.MY_EMAIL || "onboarding@resend.dev";
+    // 2. Send Email via Nodemailer
+    const myEmail = process.env.MY_EMAIL || "mlgadarsh@gmail.com";
     
-    try {
-      if (process.env.RESEND_API_KEY && process.env.RESEND_API_KEY !== "re_YOUR_API_KEY_HERE") {
-        await resend.emails.send({
-          from: "onboarding@resend.dev", // Verified sender (free tier limit)
-          to: myEmail, // Where you want to receive it
+    if (process.env.EMAIL_USER && process.env.EMAIL_PASS) {
+      try {
+        const transporter = nodemailer.createTransport({
+          service: "gmail",
+          auth: {
+            user: process.env.EMAIL_USER,
+            pass: process.env.EMAIL_PASS,
+          },
+        });
+
+        const mailOptions = {
+          from: process.env.EMAIL_USER,
+          to: myEmail,
+          replyTo: email, // This allows you to hit "Reply" and reply directly to the sender!
           subject: `New Contact Form Submission: ${subject || 'No Subject'}`,
           html: `
             <h2>New Message from Portfolio</h2>
@@ -43,14 +48,15 @@ const submitContactForm = async (req, res) => {
             <p><strong>Message:</strong></p>
             <p>${message}</p>
           `,
-        });
-        console.log("Email notification sent successfully.");
-      } else {
-        console.log("Skipping Resend email: API key not configured yet.");
+        };
+
+        await transporter.sendMail(mailOptions);
+        console.log("Email notification sent successfully via Nodemailer.");
+      } catch (emailError) {
+        console.error("Error sending email via Nodemailer:", emailError);
       }
-    } catch (emailError) {
-      console.error("Error sending email via Resend:", emailError);
-      // We don't fail the request if email fails, since the DB save was successful
+    } else {
+      console.log("Skipping email notification: EMAIL_USER and EMAIL_PASS not configured in .env");
     }
 
     return res.status(201).json({
