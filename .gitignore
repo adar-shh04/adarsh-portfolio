@@ -5,4 +5,4 @@ build/
 .env*
 !.env.example
 .DS_Store
-.env
+backend/.env
