@@ -28,9 +28,9 @@ export async function POST(request: Request) {
       );
     }
 
-    const apiKey = process.env.re_C4oXvVrN_Ds8oy11VRYnSLMgmvBByF9Ds;
-    const toEmail = process.env.mlgadarsh@gmail.com || process.env.CONTACT_TO_EMAIL;
-    const fromEmail = process.env.CONTACT_FROM_EMAIL || "onboarding@resend.dev";
+    const apiKey = process.env.RESEND_API_KEY?.trim();
+    const toEmail = (process.env.MY_EMAIL || process.env.CONTACT_TO_EMAIL)?.trim();
+    const fromEmail = process.env.CONTACT_FROM_EMAIL?.trim() || "onboarding@resend.dev";
 
     if (!apiKey || !toEmail) {
       return NextResponse.json(
