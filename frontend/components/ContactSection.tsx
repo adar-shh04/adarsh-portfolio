@@ -22,7 +22,7 @@ export default function ContactSection() {
     setStatus("loading");
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "";
       const res = await fetch(`${apiUrl}/api/contact`, {
         method: "POST",
         headers: {
@@ -32,8 +32,16 @@ export default function ContactSection() {
       });
 
       if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || "Failed to send message");
+        let errorMessage = "Failed to send message";
+
+        try {
+          const errorData = await res.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          errorMessage = `Request failed (${res.status})`;
+        }
+
+        throw new Error(errorMessage);
       }
 
       setStatus("success");
