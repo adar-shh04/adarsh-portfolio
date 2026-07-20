@@ -72,13 +72,12 @@ export async function POST(request: Request) {
     });
 
     if (error) {
-      console.error("========== RESEND ERROR ==========");
       console.error(error);
 
       return NextResponse.json(
         {
           success: false,
-          error,
+          error: JSON.stringify(error, null, 2),
         },
         { status: 500 }
       );
