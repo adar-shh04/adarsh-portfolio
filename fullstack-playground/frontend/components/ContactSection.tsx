@@ -22,7 +22,7 @@ export default function ContactSection() {
     setStatus("loading");
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
+      const apiUrl = "http://localhost:5000";
       const res = await fetch(`${apiUrl}/api/contact`, {
         method: "POST",
         headers: {

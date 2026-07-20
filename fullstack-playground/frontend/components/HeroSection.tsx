@@ -46,7 +46,7 @@ export default function HeroSection() {
         {/* Resume Button */}
         <Reveal delay={0.4}>
           <a
-            href="https://drive.google.com/file/d/1lmOcrMIAS5n3-YO9d08nWYUIGfEjIY76/view?usp=drive_link"
+            href="https://drive.google.com/file/d/1pCqySAtce4G5yaFH6n-D0IcSYWzwASij/view?usp=sharing"
             target="_blank"
             className="px-6 py-3 bg-emerald-primary text-white rounded-lg font-medium hover:bg-emerald-400 transition-colors"
           >
