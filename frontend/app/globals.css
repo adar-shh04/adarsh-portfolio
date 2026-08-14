@@ -14,6 +14,13 @@ body { background: #050914; color: #f4f7fb; font-feature-settings: "rlig" 1, "ca
 ::selection { background: rgba(16,185,129,.35); color: white; }
 :focus-visible { outline: 2px solid #10b981; outline-offset: 3px; }
 .tech-grid { background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(to bottom, black, transparent 70%); }
+.ambient-motion { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; opacity: .5; }
+.ambient-arrow, .ambient-streak { position: absolute; display: block; will-change: transform, opacity; }
+.ambient-arrow { width: 28px; height: 1px; background: rgba(110,231,183,.13); animation: ambient-drift 24s ease-in-out infinite; }
+.ambient-arrow::after { content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px; border-top: 1px solid rgba(110,231,183,.18); border-right: 1px solid rgba(110,231,183,.18); transform: rotate(45deg); }
+.ambient-streak { width: 90px; height: 1px; background: linear-gradient(90deg, transparent, rgba(16,185,129,.11), transparent); animation: ambient-streak 20s linear infinite; }
+@keyframes ambient-drift { 0%, 100% { opacity: .1; translate: -8px 12px; } 50% { opacity: .45; translate: 24px -18px; } }
+@keyframes ambient-streak { 0% { opacity: 0; translate: -30px 20px; } 20%, 80% { opacity: .35; } 100% { opacity: 0; translate: 90px -50px; } }
 .eyebrow { @apply font-mono text-[11px] uppercase tracking-[.25em] text-white/45; }
 .section-shell { @apply border-t border-white/10 py-24 md:py-32; }
 .section-heading { @apply mb-12 flex items-end justify-between gap-8 md:mb-16; }
