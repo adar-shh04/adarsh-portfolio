@@ -21,7 +21,7 @@ const projects: Project[] = [
       "Micronutrient deficiency detection with a clean ML pipeline + inference integration.",
     tech: ["Python", "TensorFlow", "OpenCV", "Flask"],
     image: "/projects/vitamin-vision.svg",
-    github: "https://github.com/afk-adarsh/Vitamin-Vision",
+    github: "https://github.com/adar-shh04/VitaminVision",
     details: [
       "Structured training + evaluation pipeline",
       "Inference-ready backend integration",
@@ -29,16 +29,16 @@ const projects: Project[] = [
     ],
   },
   {
-    title: "Data Sensei",
+    title: "Portfolio Website",
     description:
-      "Natural language to SQL dashboard for synthetic gym supplement consumption data — ask questions, get instant insights.",
-    tech: ["Python", "SQL", "NLP", "Streamlit"],
+      "Recruiter-focused portfolio with fast UX, smooth motion, and strong information hierarchy.",
+    tech: ["Next.js", "TypeScript", "Tailwind", "Framer Motion"],
     image: "/projects/portfolio.svg",
-    github: "https://github.com/afk-adarsh/Data-Sensei",
+    github: "https://github.com/adar-shh04/adarsh-portfolio",
     details: [
-      "Natural language query interface powered by LLM-to-SQL translation",
-      "Synthetic dataset modelling gym supplement consumption in Indore",
-      "Interactive dashboard with real-time query results and visualisations",
+      "Performance-first UI decisions",
+      "Component-driven structure",
+      "Responsive across breakpoints",
     ],
   },
   {
@@ -47,24 +47,11 @@ const projects: Project[] = [
       "Industry-grade supply chain automation using OCR, Gemini NLP, and anomaly detection.",
     tech: ["FastAPI", "PostgreSQL", "Redis", "Docker", "Gemini AI"],
     image: "/projects/workflow.svg",
-    github: "https://github.com/afk-adarsh/logistics-automation",
+    github: "https://github.com/adar-shh04/Logistics-Automation",
     details: [
       "AI-driven document parsing via Google Gemini",
       "Distributed task queue with Redis & Celery",
       "Production-ready anomaly detection for risk scoring",
-    ],
-  },
-  {
-    title: "Telco Customer Intelligence",
-    description:
-      "End-to-end customer intelligence dashboard for telecom churn analysis, segmentation, and revenue impact modelling.",
-    tech: ["Python", "Pandas", "Scikit-learn", "Plotly", "Streamlit"],
-    image: "/projects/workflow.svg",
-    github: "https://github.com/afk-adarsh/Telco-Customer-Intelligence-Dashboard",
-    details: [
-      "Customer churn prediction with ML classification models",
-      "RFM segmentation and cohort-based revenue analysis",
-      "Interactive Streamlit dashboard with drill-down filters",
     ],
   },
   {
@@ -73,7 +60,7 @@ const projects: Project[] = [
       "Enterprise ML pipeline combining ensemble models, Monte Carlo VaR, and SHAP explainability for customer churn risk analytics.",
     tech: ["Python", "XGBoost", "LightGBM", "SHAP", "Streamlit", "Plotly"],
     image: "/projects/financial-risk.svg",
-    github: "https://github.com/afk-adarsh/Financial-Risk-Intelligence-System",
+    github: "https://github.com/adar-shh04/Financial-Risk-Intelligence-System",
     details: [
       "Ensemble model (XGBoost + LightGBM + Random Forest) with isotonic calibration",
       "Monte Carlo VaR with 10,000 simulations for 95% portfolio Value at Risk",
@@ -225,32 +212,19 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="mt-7 flex flex-wrap gap-3">
-
                   {open.github ? (
                     <a
                       href={open.github}
                       target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2 rounded-xl bg-emerald-500/15 border border-emerald-400/25 text-emerald-200 font-medium hover:bg-emerald-500/25 hover:border-emerald-400/50 transition"
+                      className="px-5 py-2 rounded-xl bg-emerald-500 text-white font-medium hover:bg-emerald-400 transition"
                     >
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        aria-hidden="true"
-                      >
-                        <path d="M10.226 17.284c-2.965-.36-5.054-2.493-5.054-5.256 0-1.123.404-2.336 1.078-3.144-.292-.741-.247-2.314.09-2.965.898-.112 2.111.36 2.83 1.01.853-.269 1.752-.404 2.853-.404 1.1 0 1.999.135 2.807.382.696-.629 1.932-1.1 2.83-.988.315.606.36 2.179.067 2.942.72.854 1.101 2 1.101 3.167 0 2.763-2.089 4.852-5.098 5.234.763.494 1.28 1.572 1.28 2.807v2.336c0 .674.561 1.056 1.235.786 4.066-1.55 7.255-5.615 7.255-10.646C23.5 6.188 18.334 1 11.978 1 5.62 1 .5 6.188.5 12.545c0 4.986 3.167 9.12 7.435 10.669.606.225 1.19-.18 1.19-.786V20.63a2.9 2.9 0 0 1-1.078.224c-1.483 0-2.359-.808-2.987-2.313-.247-.607-.517-.966-1.034-1.033-.27-.023-.359-.135-.359-.27 0-.27.45-.471.898-.471.652 0 1.213.404 1.797 1.235.45.651.921.943 1.483.943.561 0 .92-.202 1.437-.719.382-.381.674-.718.944-.943" />
-                      </svg>
-                      View on GitHub
+                      GitHub
                     </a>
                   ) : null}
-
                   {open.demo ? (
                     <a
                       href={open.demo}
                       target="_blank"
-                      rel="noopener noreferrer"
                       className="px-5 py-2 rounded-xl bg-white/10 text-white font-medium hover:bg-white/15 transition"
                     >
                       Live Demo

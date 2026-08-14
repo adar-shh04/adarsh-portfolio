@@ -20,7 +20,7 @@ export default function ContactSection() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    
+    console.log("Using EmailJS");
   e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({
