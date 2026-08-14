@@ -1,59 +1,39 @@
 "use client";
 
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const items = [
-  { id: "home", label: "Home" },
-  { id: "tech-stack", label: "Stack" },
-  { id: "projects", label: "Projects" },
-  { id: "contact", label: "Contact" },
+  { id: "home", label: "Home", index: "01" },
+  { id: "projects", label: "Projects", index: "02" },
+  { id: "tech-stack", label: "Stack", index: "03" },
+  { id: "about", label: "About", index: "04" },
+  { id: "contact", label: "Contact", index: "05" },
 ];
 
-
 export default function TopNav() {
+  const [active, setActive] = useState("home");
+  const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    const sections = items.map(({ id }) => document.getElementById(id)).filter(Boolean) as HTMLElement[];
+    const observer = new IntersectionObserver((entries) => entries.forEach((entry) => entry.isIntersecting && setActive(entry.target.id)), { rootMargin: "-25% 0px -65%" });
+    sections.forEach((section) => observer.observe(section));
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    onScroll(); window.addEventListener("scroll", onScroll, { passive: true });
+    return () => { observer.disconnect(); window.removeEventListener("scroll", onScroll); };
   }, []);
 
-  const go = (id: string) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-    el.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const go = (id: string) => { document.getElementById(id)?.scrollIntoView({ behavior: "smooth" }); setOpen(false); };
 
-  return (
-    <div
-      className={[
-        "sticky top-0 z-40 -mx-6 md:-mx-12 px-6 md:px-12",
-        scrolled ? "backdrop-blur-xl bg-black/25 border-b border-white/10" : "bg-transparent",
-      ].join(" ")}
-    >
-      <div className="max-w-7xl mx-auto h-16 flex items-center justify-between">
-        <button
-          onClick={() => go("home")}
-          className="text-white font-semibold tracking-tight hover:text-white/90 transition"
-        >
-          Adarsh
-          <span className="text-emerald-400">.</span>
-        </button>
-
-        <div className="flex items-center gap-2">
-          {items.map((it) => (
-            <button
-              key={it.id}
-              onClick={() => go(it.id)}
-              className="px-3 py-2 text-sm rounded-lg text-white/75 hover:text-white hover:bg-white/5 transition"
-            >
-              {it.label}
-            </button>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
+  return <header className={`sticky top-0 z-40 -mx-5 px-5 transition md:-mx-12 md:px-12 ${scrolled ? "border-b border-white/10 bg-[#050914]/80 backdrop-blur-xl" : "bg-transparent"}`}>
+    <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between" aria-label="Main navigation">
+      <button onClick={() => go("home")} className="font-mono text-sm tracking-[.18em] text-white" aria-label="Go to home">ADARSH<span className="text-emerald-primary">/</span></button>
+      <div className="hidden items-center gap-1 md:flex">{items.map((item) => <button key={item.id} onClick={() => go(item.id)} className={`nav-link ${active === item.id ? "nav-link-active" : ""}`}><span className="font-mono text-[10px] text-emerald-primary/70">{item.index}</span>{item.label}</button>)}</div>
+      <button className="button-quiet hidden py-2.5 md:inline-flex" onClick={() => go("contact")}>Let&apos;s talk</button>
+      <button className="rounded-lg p-2 text-white md:hidden" onClick={() => setOpen(!open)} aria-label={open ? "Close menu" : "Open menu"} aria-expanded={open}>{open ? <X size={20} /> : <Menu size={20} />}</button>
+    </nav>
+    {open && <div className="border-t border-white/10 pb-4 pt-3 md:hidden">{items.map((item) => <button key={item.id} onClick={() => go(item.id)} className="flex w-full items-center gap-3 px-2 py-3 text-left text-sm text-white/70"><span className="font-mono text-xs text-emerald-primary">{item.index}</span>{item.label}</button>)}</div>}
+  </header>;
 }

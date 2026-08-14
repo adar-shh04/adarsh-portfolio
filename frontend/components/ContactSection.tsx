@@ -20,8 +20,7 @@ export default function ContactSection() {
   const [errorMessage, setErrorMessage] = useState("");
 
   const handleChange = (
-    
-  e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData((prev) => ({
       ...prev,
@@ -62,12 +61,12 @@ export default function ContactSection() {
       });
 
       setTimeout(() => setStatus("idle"), 3000);
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("EmailJS Error:", err);
 
       setStatus("error");
       setErrorMessage(
-        err?.text || "Unable to send message. Please try again."
+        err instanceof Error ? err.message : "Unable to send message. Please try again."
       );
 
       setTimeout(() => setStatus("idle"), 5000);
@@ -98,8 +97,8 @@ export default function ContactSection() {
             transition={{ duration: 0.6, delay: 0.08 }}
             className="text-white/65 max-w-xl mx-auto leading-relaxed"
           >
-            If you'd like to collaborate, discuss opportunities, or just say
-            hello, I'd love to hear from you.
+            If you&apos;d like to collaborate, discuss opportunities, or just say
+            hello, I&apos;d love to hear from you.
           </motion.p>
         </div>
 
