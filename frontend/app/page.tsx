@@ -9,6 +9,7 @@ import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import IntroOverlay from "@/components/IntroOverlay";
 import TopNav from "@/components/TopNav";
+import AmbientMotion from "@/components/AmbientMotion";
 
 export default function Home() {
   const [intro, setIntro] = useState(true);
@@ -18,9 +19,10 @@ export default function Home() {
     <main className="relative min-h-screen overflow-x-hidden bg-background text-foreground">
       <IntroOverlay isOpen={intro} onDone={done} />
       <div className="pointer-events-none fixed inset-0 tech-grid opacity-40" aria-hidden="true" />
+      <AmbientMotion />
       <div className="pointer-events-none absolute left-1/2 top-0 h-[700px] w-[700px] -translate-x-1/2 rounded-full bg-emerald-500/10 blur-[140px]" aria-hidden="true" />
 
-      <div className="relative mx-auto max-w-7xl px-5 md:px-12">
+      <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-12">
         <TopNav />
 
         <section id="home" className="grid min-h-[calc(100vh-4rem)] scroll-mt-24 items-center gap-14 py-20 md:grid-cols-[1.05fr_.95fr] md:py-28">
@@ -45,6 +47,17 @@ export default function Home() {
         <section id="about" className="section-shell scroll-mt-24">
           <div className="section-heading"><p className="eyebrow"><span className="text-emerald-primary">04</span> / about</p><h2>Engineering with context.</h2></div>
           <div className="grid gap-8 md:grid-cols-[.8fr_1.2fr] md:items-end"><p className="text-3xl font-medium leading-tight tracking-[-.04em] text-white">Good software is not just shipped. It is understood, shaped, and made resilient.</p><div className="space-y-5 text-base leading-8 text-white/60"><p>I work across product thinking, frontend systems, backend architecture, and applied machine learning. My favorite problems sit where a messy workflow meets an opportunity for clarity.</p><p>From model-backed dashboards to operational automation, I focus on translating complexity into tools people can trust.</p></div></div>
+          <div className="mt-12 flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[.035] p-5 md:max-w-xl md:p-6">
+            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white p-2 shadow-[0_0_28px_rgba(16,185,129,.12)]">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oF9Kh5UYbEbPrFqEM1aVyuikMMmK6h.png" alt="Vellore Institute of Technology crest" className="h-full w-full object-contain" />
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[.2em] text-emerald-soft/70">Education / 2026</p>
+              <h3 className="mt-1 text-lg font-medium text-white">B.Tech — Electronics and Computer Engineering</h3>
+              <p className="mt-1 text-sm text-white/50">Vellore Institute of Technology · Expected August 2026</p>
+            </div>
+          </div>
         </section>
 
         <ContactSection />
