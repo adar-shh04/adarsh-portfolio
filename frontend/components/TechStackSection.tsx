@@ -10,7 +10,6 @@ import {
   SiNodedotjs,
   SiMongodb,
   SiPython,
-  SiFlask,
   SiTensorflow,
   SiKeras,
   SiFastapi,
@@ -47,7 +46,7 @@ function FloatingIcon({
   label,
   index,
 }: {
-  Icon: any;
+  Icon: React.ElementType;
   label: string;
   index: number;
 }) {
@@ -71,7 +70,7 @@ function FloatingIcon({
   );
 }
 
-function TechCard({ title, tech }: { title: string; tech: any[] }) {
+function TechCard({ title, tech }: { title: string; tech: { icon: React.ElementType; label: string }[] }) {
   return (
     <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl shadow-[0_0_60px_rgba(16,185,129,0.08)]">
       <div className="p-8 md:p-10">
