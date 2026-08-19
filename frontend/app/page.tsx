@@ -3,13 +3,13 @@
 import { useCallback, useState } from "react";
 import { ArrowUpRight, Code2, Mail, MapPin } from "lucide-react";
 import Reveal from "@/components/Reveal";
-import DeveloperPanel from "@/components/DeveloperPanel";
 import TechStackSection from "@/components/TechStackSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import IntroOverlay from "@/components/IntroOverlay";
 import TopNav from "@/components/TopNav";
 import AmbientMotion from "@/components/AmbientMotion";
+import MusicPlayer from "@/components/MusicPlayer";
 
 export default function Home() {
   const [intro, setIntro] = useState(true);
@@ -25,40 +25,19 @@ export default function Home() {
       <div className="relative z-10 mx-auto max-w-7xl px-5 md:px-12">
         <TopNav />
 
-        <section id="home" className="grid min-h-[calc(100vh-4rem)] scroll-mt-24 items-center gap-14 py-20 md:grid-cols-[1.05fr_.95fr] md:py-28">
-          <div className="space-y-8">
-            <Reveal><p className="eyebrow"><span className="text-emerald-primary">01</span> / independent builder</p></Reveal>
-            <Reveal delay={0.08}><h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-[-0.06em] text-white sm:text-7xl lg:text-[6.8rem] lg:leading-[.9]">Systems that feel <span className="text-emerald-soft">inevitable.</span></h1></Reveal>
-            <Reveal delay={0.16}><p className="max-w-xl text-pretty text-lg leading-8 text-white/65">I&apos;m Adarsh Singh — a full-stack developer designing dependable products, intelligent workflows, and interfaces with a sharp point of view.</p></Reveal>
-            <Reveal delay={0.24}>
-              <div className="flex flex-wrap items-center gap-3">
-                <a href="#projects" className="button-primary">Explore selected work <ArrowUpRight size={16} /></a>
-                <a href="https://drive.google.com/file/d/1pCqySAtce4G5yaFH6n-D0IcSYWzwASij/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="button-quiet">Resume <ArrowUpRight size={15} /></a>
-              </div>
-            </Reveal>
-            <Reveal delay={0.32}><div className="flex flex-wrap gap-5 pt-4 text-sm text-white/45"><span className="inline-flex items-center gap-2"><MapPin size={15} className="text-emerald-primary" /> Indore, India</span><span className="inline-flex items-center gap-2"><span className="h-2 w-2 animate-pulse rounded-full bg-emerald-primary" /> Available for select work</span></div></Reveal>
+        <section id="home" className="grid min-h-[calc(100vh-4rem)] scroll-mt-24 items-center gap-10 py-20 md:grid-cols-[1.08fr_.92fr] md:py-24">
+          <div className="space-y-7">
+            <Reveal><p className="eyebrow"><span className="text-emerald-primary">01</span> / about me</p></Reveal>
+            <Reveal delay={0.08}><h1 className="max-w-4xl text-balance text-5xl font-semibold tracking-[-0.06em] text-white sm:text-7xl lg:text-[6rem] lg:leading-[.92]">Hi, I&apos;m <span className="text-emerald-soft">Adarsh.</span></h1></Reveal>
+            <Reveal delay={0.16}><p className="max-w-xl text-pretty text-lg leading-8 text-white/65">I&apos;m a developer who enjoys turning product questions, data, and rough ideas into clear software. I work across frontend, backend, and machine learning with a bias toward useful, well-finished tools.</p></Reveal>
+            <Reveal delay={0.2}><div className="flex items-center gap-3 text-sm text-white/45"><MapPin size={15} className="text-emerald-primary" /> Indore, India <span className="h-1 w-1 rounded-full bg-emerald-primary" /> Available for select work</div></Reveal>
+            <Reveal delay={0.24}><div className="flex flex-wrap items-center gap-3"><a href="#contact" className="button-primary">Let&apos;s talk <ArrowUpRight size={16} /></a><MusicPlayer /><a href="https://drive.google.com/file/d/1pCqySAtce4G5yaFH6n-D0IcSYWzwASij/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="button-quiet">Resume <ArrowUpRight size={15} /></a></div></Reveal>
           </div>
-          <Reveal delay={0.18}><div className="panel relative overflow-hidden p-6 md:p-10"><div className="absolute right-6 top-6 font-mono text-[10px] uppercase tracking-[.25em] text-emerald-soft/60">build / 2026</div><DeveloperPanel /></div></Reveal>
+          <Reveal delay={0.18}><div className="panel relative overflow-hidden p-5 md:p-7"><div className="absolute right-5 top-5 font-mono text-[10px] uppercase tracking-[.25em] text-emerald-soft/60">education / 2026</div><div className="relative overflow-hidden rounded-xl border border-white/10 bg-[#071b18]"><div className="absolute inset-0 bg-[linear-gradient(130deg,rgba(16,185,129,.16),transparent_42%)]" /><div className="relative grid min-h-[380px] items-end"><img src="/about/graduation.webp" alt="Adarsh Singh at his VIT graduation ceremony" className="absolute inset-0 h-full w-full object-cover opacity-60" /><div className="absolute inset-0 bg-gradient-to-t from-[#04100d] via-[#04100d]/40 to-transparent" /><div className="relative space-y-4 p-5 md:p-6"><div className="flex items-center gap-3"><img src="/about/vit-crest.png" alt="Vellore Institute of Technology crest" className="h-12 w-12 rounded-lg bg-white p-1 object-contain" /><div><p className="font-mono text-[10px] uppercase tracking-[.2em] text-emerald-soft/75">VIT Chennai</p><p className="text-sm text-white/60">Class of 2026</p></div></div><div><h2 className="text-2xl font-medium tracking-[-.03em] text-white">B.Tech, Electronics and Computer Engineering</h2><p className="mt-2 text-sm leading-6 text-white/55">Building a foundation across embedded systems, software engineering, data, and intelligent products.</p></div></div></div></div></div></Reveal>
         </section>
 
         <ProjectsSection />
         <TechStackSection />
-
-        <section id="about" className="section-shell scroll-mt-24">
-          <div className="section-heading"><p className="eyebrow"><span className="text-emerald-primary">04</span> / about</p><h2>Engineering with context.</h2></div>
-          <div className="grid gap-8 md:grid-cols-[.8fr_1.2fr] md:items-end"><p className="text-3xl font-medium leading-tight tracking-[-.04em] text-white">Good software is not just shipped. It is understood, shaped, and made resilient.</p><div className="space-y-5 text-base leading-8 text-white/60"><p>I work across product thinking, frontend systems, backend architecture, and applied machine learning. My favorite problems sit where a messy workflow meets an opportunity for clarity.</p><p>From model-backed dashboards to operational automation, I focus on translating complexity into tools people can trust.</p></div></div>
-          <div className="mt-12 flex items-center gap-5 rounded-2xl border border-white/10 bg-white/[.035] p-5 md:max-w-xl md:p-6">
-            <div className="grid h-16 w-16 shrink-0 place-items-center rounded-xl bg-white p-2 shadow-[0_0_28px_rgba(16,185,129,.12)]">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oF9Kh5UYbEbPrFqEM1aVyuikMMmK6h.png" alt="Vellore Institute of Technology crest" className="h-full w-full object-contain" />
-            </div>
-            <div>
-              <p className="font-mono text-[10px] uppercase tracking-[.2em] text-emerald-soft/70">Education / 2026</p>
-              <h3 className="mt-1 text-lg font-medium text-white">B.Tech — Electronics and Computer Engineering</h3>
-              <p className="mt-1 text-sm text-white/50">Vellore Institute of Technology · Expected August 2026</p>
-            </div>
-          </div>
-        </section>
 
         <ContactSection />
 

@@ -4,11 +4,10 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const items = [
-  { id: "home", label: "Home", index: "01" },
+  { id: "home", label: "About", index: "01" },
   { id: "projects", label: "Projects", index: "02" },
   { id: "tech-stack", label: "Stack", index: "03" },
-  { id: "about", label: "About", index: "04" },
-  { id: "contact", label: "Contact", index: "05" },
+  { id: "contact", label: "Contact", index: "04" },
 ];
 
 export default function TopNav() {
