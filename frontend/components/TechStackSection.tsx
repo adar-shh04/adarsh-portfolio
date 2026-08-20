@@ -7,6 +7,7 @@ import {
   Database,
   Layers3,
   Server,
+  TreePine,
 } from "lucide-react";
 
 const cardImages = {
@@ -208,9 +209,10 @@ export default function TechStackSection() {
               Everything I use to turn ideas into shipped systems.
             </h2>
           </div>
-          <p className="max-w-sm text-sm leading-6 text-white/55">
-            A living map of the languages, platforms, patterns, and practices I have worked with across product and data projects.
-          </p>
+          <div className="flex max-w-sm items-start gap-3 text-sm leading-6 text-white/55">
+            <TreePine size={28} strokeWidth={1.2} className="mt-1 shrink-0 text-emerald-soft/70 drop-shadow-[0_0_10px_rgba(110,231,183,.45)]" aria-hidden="true" />
+            <p>A living map of the languages, platforms, patterns, and practices I have worked with across product and data projects.</p>
+          </div>
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
