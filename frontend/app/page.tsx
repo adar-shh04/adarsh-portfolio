@@ -33,7 +33,7 @@ export default function Home() {
             <Reveal delay={0.24}>
               <div className="flex flex-wrap items-center gap-3">
                 <a href="#projects" className="button-primary">Explore selected work <ArrowUpRight size={16} /></a>
-                <a href="https://drive.google.com/file/d/1pCqySAtce4G5yaFH6n-D0IcSYWzwASij/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="button-quiet">Resume <ArrowUpRight size={15} /></a>
+                <a href="https://drive.google.com/file/d/1VsgT79FszwdjF1q_I8wFf62EGrFbLUtz/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="button-quiet">Resume <ArrowUpRight size={15} /></a>
               </div>
             </Reveal>
             <Reveal delay={0.32}><div className="flex flex-wrap gap-5 pt-4 text-sm text-white/45"><span className="inline-flex items-center gap-2"><MapPin size={15} className="text-emerald-primary" /> Indore, India</span><span className="inline-flex items-center gap-2"><span className="h-2 w-2 animate-pulse rounded-full bg-emerald-primary" /> Available for select work</span></div></Reveal>
