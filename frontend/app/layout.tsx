@@ -9,9 +9,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Adarsh Singh | Full-Stack Developer",
+  title: "Adarsh Singh | AI Engineer",
   description:
-    "Full-Stack Developer building scalable, high-performance web applications with modern technologies. Experienced in AI, Full-Stack systems, and clean architecture.",
+    "AI engineer building retrieval and LLM infrastructure: hybrid search measured on public benchmarks, a LangGraph research workflow with verified citations, and an OpenAI-compatible LLM gateway.",
 
   keywords: [
     "Adarsh Singh",
@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Adarsh Singh" }],
 
   openGraph: {
-    title: "Adarsh Singh | Full-Stack Developer",
+    title: "Adarsh Singh | AI Engineer",
     description:
-      "Full-Stack Developer building scalable, high-performance web applications with modern technologies.",
+      "AI engineer building retrieval and LLM infrastructure, with evaluations that report what did not work as well as what did.",
     url: "https://mlgadarsh-portfolio.vercel.app",
     siteName: "Adarsh Portfolio",
     images: [
@@ -45,9 +45,9 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Adarsh Singh | Full-Stack Developer",
+    title: "Adarsh Singh | AI Engineer",
     description:
-      "Full-Stack Developer building scalable web applications and AI systems.",
+      "AI engineer building retrieval and LLM infrastructure.",
     images: ["og.png"],
   },
 };

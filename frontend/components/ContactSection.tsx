@@ -124,7 +124,7 @@ export default function ContactSection() {
 
               <div className="flex gap-4 mt-3">
                 <a
-                  href="https://www.linkedin.com/in/adarsh-singh-mlg/"
+                  href="https://www.linkedin.com/in/adarshh13/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white/60 hover:text-emerald-400 transition"
